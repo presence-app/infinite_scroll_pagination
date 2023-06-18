@@ -117,11 +117,13 @@ class PagingController<PageKeyType, ItemType>
   void addNewItem (ItemType newItem) {
     //final previousItems = value.itemList ?? [];
     final itemList = [newItem] + this.itemList!;
+
     value = PagingState<PageKeyType, ItemType>(
       itemList: itemList,
       error: null,
       nextPageKey: null,
     );
+    notifyStatusListeners(value.status);
   }
 
   /// Erases the current error.
