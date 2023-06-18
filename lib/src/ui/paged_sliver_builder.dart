@@ -154,6 +154,7 @@ class _PagedSliverBuilderState<PageKeyType, ItemType>
           }
         },
         child: ValueListenableBuilder<PagingState<PageKeyType, ItemType>>(
+          key: UniqueKey(),
           valueListenable: _pagingController,
           builder: (context, pagingState, _) {
             Widget child;
