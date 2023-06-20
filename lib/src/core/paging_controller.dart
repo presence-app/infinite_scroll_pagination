@@ -113,18 +113,6 @@ class PagingController<PageKeyType, ItemType>
   /// key to `null`.
   void appendLastPage(List<ItemType> newItems) => appendPage(newItems, null);
 
-  /// Add newItem at the begin of the grid and reorder the grid
-  void addNewItem (ItemType newItem) {
-    //final previousItems = value.itemList ?? [];
-    final itemList = [newItem] + this.itemList!;
-
-    value = PagingState<PageKeyType, ItemType>(
-      itemList: itemList,
-      error: null,
-      nextPageKey: null,
-    );
-    notifyStatusListeners(value.status);
-  }
 
   /// Erases the current error.
   void retryLastFailedRequest() {
